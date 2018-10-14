@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Edificis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Nom</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @edificis.each do |edifici| %>
+      <tr>
+        <td><%= edifici.user_id %></td>
+        <td><%= edifici.nom %></td>
+        <td><%= link_to 'Show', edifici %></td>
+        <td><%= link_to 'Edit', edit_edifici_path(edifici) %></td>
+        <td><%= link_to 'Destroy', edifici, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Edifici', new_edifici_path %>

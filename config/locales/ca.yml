@@ -1,0 +1,132 @@
+ca:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password_confirmation:
+              confirmation: "No coincideix amb la confirmació"
+            current_password:
+              blank: "No pot estar en blanc"
+              invalid: "La contrasenya no és vàlida"
+            password:
+              too_short: "La contrasenya ha de tenir com a mínim 8 caràcters"
+              blank: "No pot estar en blanc"
+            email:
+              taken: "Aquest correu electrònic ja està registrat"
+              invalid: "Aquesta adreça de correu electrònic no és vàlida"
+              blank: "Cal escriure el correu electrònic"
+            first_name:
+              blank: "Cal escriure el nom"
+            last_name:
+              blank: "Cal escriure els cognoms"
+  simple_form:
+    labels:
+      user:
+        first_name: 'Nom'
+        last_name: 'Cognoms'
+        nif: 'NIF'
+        email: 'Correu electrònic'
+        password: 'Contrasenya'
+        password_confirmation: 'Confirmació de contrasenya'
+        current_password: 'Contrasenya actual'
+        remember_me: "Recorda'm"
+      edifici:
+        nom_edifici: "Nom del projecte"
+        ref_cadastral: "Referència cadastral"
+      identificacio:
+        tipus_via: "Tipus de via"
+        nom_via: "Nom de la via"
+        numero_via: "Número"
+        bloc: "Bloc"
+        codi_postal: "Codi postal"
+        poblacio: "Població"
+        provincia: "Província"
+        periode_construccio: "Període de construcció"
+        any_construccio: "Any de construcció"
+        superficie_util: "Superfície útil"
+        tipus_projecte: "Tipus de projecte"
+        nom_propietari: "Nom"
+        cognoms_propietari: "Cognoms"
+        tipus_document_identitat_propietari: "Tipus de document d'identitat"
+        numero_document_identitat_propietari: "Número de document"
+        email_propietari: "Correu electrònic"
+        tel_fix_propietari: "Telèfon fix"
+        tel_mobil_propietari: "Telèfon mòbil"
+        adreca_propietari: "Adreça"
+        codi_postal_propietari: "Codi postal"
+        municipi_propietari: "Població"
+      envolupant:
+        millores_facana: "S'han realitzat millores a les façanes de l'edifici?"
+        millores_coberta: "S'han realitzat millores a la coberta?"
+        tipus_finestres: "Tipus majoritari de finestres"
+        estanquitat_finestres: "Estanquitat a l'aire de les finestres"
+        descripcio_facanes: "Descripció de les façanes"
+        puntuacio_facanes: "Puntuació de les façanes"
+        descripcio_coberta: "Descripció de la coberta"
+        puntuacio_coberta: "Puntuació de la coberta"
+        descripcio_terra: "Descripció del terra"
+        puntuacio_terra: "Puntuació del terra"
+        descripcio_finestres: "Descripció de les finestres"
+        puntuacio_finestres: "Puntuació de les finestres"
+      proposta:
+        nom: "Nom"
+        descripcio: "Descripció"
+        cost: "Cost"
+        estalvi: "Estalvi"
+        reduccio_emissions: "Reducció emissions"
+        retorn_inversio: "Temps de retorn de la inversió"
+  layouts:
+    application:
+      titol_pagina: "Test energètic"
+    navigation:
+      titol: "Test energètic"
+      register: "Registrar-se"
+      sign_in: "Iniciar sessió"
+      account_configuration: "Configuració del compte"
+      sign_out: "Tancar sessió"
+      tutorials: "Tutorials"
+      projectes: "Projectes"
+    subnavigation:
+      identificacio: "Identificació"
+      envolupant: "Envolupant"
+      instalacions: "Instal·lacions"
+      consums: "Consums"
+      propostes: "Propostes de millora"
+      documents: "Documents"
+  home:
+    index:
+      titol_test_energetic: "Test energètic"
+      subtitol_test_energetic: "Eina de suport per a l'elaboració de propostes d'estalvi energètic en habitatges existents."
+  edificis:
+    index:
+      titol: "Projectes"
+      nou_edifici: "Crear un nou projecte"
+      no_projectes: "Encara no has creat cap projecte."
+    new:
+      titol: "Crear un nou projecte"
+      tornar_projectes: "Tornar al llistat de projectes"
+    form:
+      guardar: "Guardar"
+    create:
+      edifici_creat: "El projecte s'ha creat correctament"
+    update:
+      edifici_actualitzat: "Les dades s'han actualitzat correctament"
+    delete:
+      edifici_eliminat: "El projecte s'ha eliminat correctament"
+  identificacions:
+    edit:
+      titol_identificacio: "Identificació"
+    form:
+      guardar: "Guardar"
+      dades_edifici: "DADES DE L'IMMOBLE"
+      dades_propietari: "DADES DE LA PROPIETAT"
+      abans_1981: "Abans de 1981"
+      81-87: "Entre 1981 i 1987"
+      88-06: "Entre 1988 i 2006"
+      despres_2006: "Després de 2006"
+      habitatge_dins_edifici: "Habitatge dins d'un edifici"
+      edifici_habitatges: "Edifici d'habitatges"
+      habitatge_unifamiliar: "Habitatge unifamiliar"
+    update:
+      guardat_ok: "Les dades s'han guardat correctament"

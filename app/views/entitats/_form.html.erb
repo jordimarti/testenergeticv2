@@ -1,0 +1,25 @@
+
+<%= simple_form_for(@entitat) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :edifici_id %>
+    <%= f.input :nom %>
+    <%= f.input :descripcio %>
+    <%= f.input :superficie %>
+    <%= f.input :destinacio %>
+    <%= f.input :quota %>
+    <%= f.input :nom_propietari %>
+    <%= f.input :cognoms_propietari %>
+    <%= f.input :email_propietari %>
+    <%= f.input :telefon_propietari %>
+    <%= f.input :adreca_propietari %>
+    <%= f.input :codi_postal_propietari %>
+    <%= f.input :municipi_propietari %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

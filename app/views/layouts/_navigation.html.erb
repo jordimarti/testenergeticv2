@@ -1,0 +1,33 @@
+<div class="topnav" id="Topnav">
+  <div class="titol-web-container">
+    <%= link_to t('.titol'), root_path, :class => 'titol-web' %>
+  </div>
+  <div class="topnav-container">
+    <%= link_to t('.projectes'), edificis_path, class: 'menu-principal-link' %>
+    <%= link_to t('.tutorials'), edificis_path, class: 'menu-principal-link' %>
+    <div class="dropdown">
+      <button class="dropbtn">Idioma 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <%= link_to 'Català', {locale: 'ca'}, class: 'menu-principal-link' %>
+        <%= link_to 'Español', {locale: 'es'}, class: 'menu-principal-link' %>
+      </div>
+    </div> 
+    <% if user_signed_in? %>
+      <div class="dropdown">
+        <button class="dropbtn"><%= current_user.email %> 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <%= link_to t('.account_configuration'), edit_user_registration_path, :class => 'menu-principal-link' %>
+          <%= link_to t('.sign_out'), destroy_user_session_path, method: :delete, :class => 'menu-principal-link' %>
+        </div>
+      </div> 
+    <% else %>
+      <%= link_to t('.register'), new_user_registration_path, :class => 'menu-principal-link' %>
+      <%= link_to t('.sign_in'), new_user_session_path, :class => 'menu-principal-link'  %>
+    <% end %>
+    <a href="javascript:void(0);" class="menu-principal-link icon" onclick="menuDesplegable()">&#9776;</a>
+  </div>
+</div>

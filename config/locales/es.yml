@@ -1,0 +1,66 @@
+es:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password_confirmation:
+              confirmation: "No coincide con la confirmación"
+            current_password:
+              blank: "No puede estar en blanco"
+              invalid: "La contraseña no es válida"
+            password:
+              too_short: "La contraseña debe tener como mínimo 8 carácteres"
+              blank: "No puede estar en blanco"
+            email:
+              taken: "Este correo electrónico ya está registrado"
+              invalid: "Esta dirección de correo electrónico no es válida"
+              blank: "Es necesario escribir el correo electrónico"
+            first_name:
+              blank: "Es necesario escribir el nombre"
+            last_name:
+              blank: "Es necesario escribir los apellidos"
+  simple_form:
+    labels:
+      user:
+        first_name: 'Nombre'
+        last_name: 'Apellidos'
+        nif: 'NIF'
+        email: 'Correo electrónico'
+        password: 'Contraseña'
+        password_confirmation: 'Confirmación de contraseña'
+        current_password: 'Contraseña actual'
+        remember_me: "Recuérdame"
+      envolupant:
+        puntuacio_facanes: "Puntuación de las fachadas"
+  layouts:
+    application:
+      titol_pagina: "Test energético"
+    navigation:
+      titol: "Test energético"
+      register: "Registrarse"
+      sign_in: "Iniciar sesión"
+      account_configuration: "Configuración de la cuenta"
+      sign_out: "Cerrar sesión"
+      tutorials: "Tutoriales"
+      projectes: "Proyectos"
+  home:
+    index:
+      titol_test_energetic: "Test energético"
+      subtitol_test_energetic: "Herramienta para la elaboración de propuestas de ahorro energético en viviendas existentes."
+  edificis:
+    index:
+      titol: "Proyectos"
+      nou_edifici: "Crear un nuevo edificio"
+      no_projectes: "Aún no has creado ningún proyecto."
+    new:
+      titol: "Crear un nuevo proyecto"
+      tornar_projectes: "Volver al listado de proyectos"
+    form:
+      guardar: "Guardar"
+    create:
+      edifici_creat: "El edificio se ha creado correctamente"
+    update:
+      edifici_actualitzat: "El edificio se ha actualizado correctamente"
+    delete:
+      edifici_eliminat: "El edificio se ha eliminado correctamente"
