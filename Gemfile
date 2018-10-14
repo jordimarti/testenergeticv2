@@ -35,7 +35,7 @@ gem 'mini_magick', '~> 4.8'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-
+gem "aws-sdk-s3", require: false
 gem 'foundation-rails', '~> 6.4', '>= 6.4.3.0'
 gem 'devise', '~> 4.5'
 gem 'devise-i18n', '~> 1.6', '>= 1.6.5'
