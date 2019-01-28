@@ -1,24 +1,11 @@
 class IdentificacionsController < ApplicationController
-  before_action :set_identificacio, only: [:show, :edit, :update, :destroy]
+  before_action :set_identificacio, only: [:edit, :update]
+  before_action :set_edifici
 
-  # GET /identificacions
-  # GET /identificacions.json
-  def index
-    @identificacions = Identificacio.all
-  end
-
-  # GET /identificacions/1
-  # GET /identificacions/1.json
-  def show
-  end
-
-  # GET /identificacions/new
-  def new
-    @identificacio = Identificacio.new
-  end
-
-  # GET /identificacions/1/edit
   def edit
+    #@subnavigation = true
+    @submenu_actiu = 'identificacio'
+    #check_user_edifici(@edifici.id)
   end
 
   # POST /identificacions
@@ -67,8 +54,12 @@ class IdentificacionsController < ApplicationController
       @identificacio = Identificacio.find(params[:id])
     end
 
+    def set_edifici
+      @edifici = Edifici.find(@identificacio.edifici_id)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def identificacio_params
-      params.require(:identificacio).permit(:edifici_id, :tipus_via, :nom_via, :numero_via, :bloc, :codi_postal, :poblacio, :provincia, :any_construccio, :superficie_util, :nom_propietari, :cognoms_propietari, :tipus_document_identitat_propietari, :numero_document_identitat_propietari, :email_propietari, :telefon_propietari, :adreca_propietari, :codi_postal_propietari, :municipi_propietari)
+      params.require(:identificacio).permit(:edifici_id, :tipus_via, :nom_via, :numero_via, :bloc, :codi_postal, :poblacio, :provincia, :any_construccio, :superficie_util, :nom_propietari, :cognoms_propietari, :tipus_document_identitat_propietari, :numero_document_identitat_propietari, :email_propietari, :telefon_propietari, :adreca_propietari, :codi_postal_propietari, :municipi_propietari, :imatge_edifici)
     end
 end

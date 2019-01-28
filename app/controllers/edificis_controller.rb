@@ -1,5 +1,6 @@
 class EdificisController < ApplicationController
-  before_action :set_edifici, only: [:show, :edit, :update, :destroy]
+  before_action :set_edifici, only: [:show, :edit, :update, :destroy, :ambits]
+  before_action :authenticate_user!
 
   # GET /edificis
   # GET /edificis.json
@@ -28,6 +29,7 @@ class EdificisController < ApplicationController
 
     respond_to do |format|
       if @edifici.save
+        create_complements(@edifici.id)
         format.html { redirect_to @edifici, notice: 'Edifici was successfully created.' }
         format.json { render :show, status: :created, location: @edifici }
       else
@@ -59,6 +61,18 @@ class EdificisController < ApplicationController
       format.html { redirect_to edificis_url, notice: 'Edifici was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def create_complements(edifici_id)
+    #Identificacio
+    @identificacio = Identificacio.new
+    @identificacio.edifici_id = edifici_id
+    @identificacio.save
+  end
+
+  def ambits
+    @subnavigation = true
+    @submenu_actiu = 'ambits'
   end
 
   private

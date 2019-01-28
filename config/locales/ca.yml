@@ -114,6 +114,19 @@ ca:
       edifici_actualitzat: "Les dades s'han actualitzat correctament"
     delete:
       edifici_eliminat: "El projecte s'ha eliminat correctament"
+  entitats:
+    index:
+      titol: "Selecció d'àmbit"
+      edifici_sencer: "Edifici"
+      dades_edifici: "Dades de l'edifici"
+      entitats: "Entitats de l'edifici"
+      nova_entitat: "+ Afegir entitat"
+      eliminar: "Segur que vols eliminar aquesta entitat?"
+    new:
+      titol: "Nova entitat"
+      tornar: "Tornar a les entitats"
+    form:
+      guardar: "Guardar"
   identificacions:
     edit:
       titol_identificacio: "Identificació"

@@ -1,5 +1,26 @@
-<h1>New Edifici</h1>
+<div class="dark-background-container">
+  <div class="grid-container">
+    <div class="grid-x grid-margin-x">
+    	<div class="medium-6 medium-offset-3 cell">
+	      <div class="heavy-container">
+	        <div class="heavy-title-container">
+	          <h2 class="heavy-title"><%= t('.titol') %></h2>
+	        </div>
+	        <div class="heavy-container-form">
+						<%= render 'form', edifici: @edifici %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="grid-container">
+    <div class="grid-x grid-margin-x">
+			<div class="medium-6 medium-offset-3 cell">
+				<div class="alternatives-container-under">
+					<%= link_to t('.tornar_projectes'), edificis_path %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-<%= render 'form', edifici: @edifici %>
-
-<%= link_to 'Back', edificis_path %>

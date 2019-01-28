@@ -1,25 +1,68 @@
 
-<%= simple_form_for(@entitat) do |f| %>
+<%= simple_form_for([@edifici, @entitat]) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :edifici_id %>
-    <%= f.input :nom %>
-    <%= f.input :descripcio %>
-    <%= f.input :superficie %>
-    <%= f.input :destinacio %>
-    <%= f.input :quota %>
-    <%= f.input :nom_propietari %>
-    <%= f.input :cognoms_propietari %>
-    <%= f.input :email_propietari %>
-    <%= f.input :telefon_propietari %>
-    <%= f.input :adreca_propietari %>
-    <%= f.input :codi_postal_propietari %>
-    <%= f.input :municipi_propietari %>
+    <%= f.input :edifici_id, :as => :hidden, :input_html => { :value => @edifici.id } %>
+    <div class="grid-x grid-margin-x">
+      <div class="medium-6 cell">
+        <%= f.input :nom %>
+      </div>
+      <div class="medium-6 cell">
+        <%= f.input :descripcio %>
+      </div>
+    </div>
+    <div class="grid-x grid-margin-x">
+      <div class="medium-3 cell">
+        <%= f.input :superficie %>
+      </div>
+      <div class="medium-3 cell">
+        <%= f.input :quota %>
+      </div>
+      <div class="medium-6 cell">
+        <%= f.input :destinacio, collection: [[t('.habitatge'), 'Habitatge'], [t('.local'), 'Local'], [t('.traster'), 'Traster'], [t('.magatzem'), 'Magatzem']] %>
+      </div>
+    </div>
+    <div class="grid-x grid-margin-x">
+      <div class="medium-12 cell">
+        <div class="divider"></div>
+        <h4 class="titol-apartat"><%= t('.dades_propietat') %></h4>
+      </div>
+    </div>
+    <div class="grid-x grid-margin-x">
+      <div class="medium-6 cell">
+        <%= f.input :nom_propietari %>
+      </div>
+      <div class="medium-6 cell">
+        <%= f.input :cognoms_propietari %>
+      </div>
+    </div>
+    <div class="grid-x grid-margin-x">
+      <div class="medium-6 cell">
+        <%= f.input :email_propietari %>
+      </div>
+      <div class="medium-6 cell">
+        <%= f.input :telefon_propietari %>
+      </div>
+    </div>
+    <div class="grid-x grid-margin-x">
+      <div class="medium-6 cell">
+        <%= f.input :adreca_propietari %>
+      </div>
+      <div class="medium-3 cell">
+        <%= f.input :codi_postal_propietari %>
+      </div>
+      <div class="medium-3 cell">
+        <%= f.input :municipi_propietari %>
+      </div>
+    </div>
   </div>
 
+  <div class="spacer"></div>
   <div class="form-actions">
-    <%= f.button :submit %>
+    <div class="button-right-container">
+      <%= f.button :submit, t('.guardar'), :class => 'button button-right' %>
+    </div>
   </div>
 <% end %>

@@ -1,0 +1,10 @@
+<div class="grid-container">
+  <div class="grid-x grid-margin-x">
+    <div class="medium-12 cell">
+    	Edifici
+    	<% @edifici.entitats.each do |entitat| %>
+    		<%= entitat.nom %>
+    	<% end %>
+    </div>
+  </div>
+</div>

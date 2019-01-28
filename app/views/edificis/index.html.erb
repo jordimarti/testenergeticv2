@@ -1,29 +1,60 @@
-<p id="notice"><%= notice %></p>
+<div class="dark-background-container">
+  <div class="grid-container">
+    <div class="grid-x grid-margin-x">
+      <div class="medium-12 cell">
+        <div class="heavy-container">
+          <div class="heavy-title-container">
+            <h2 class="heavy-title"><%= t('.titol') %></h2>
+          </div>
+          <div class="heavy-container-form">
+            <div class="button-right-container">
+              <%= link_to new_edifici_path, :class => "button button-right" do %>
+                <%= t('.nou_edifici') %>
+              <% end %>
+            </div>
 
-<h1>Edificis</h1>
+            <div class="grid-x grid-margin-x">
+              <div class="medium-9 cell">
+                <div class="projectes-existents-container">
+                  <% if @edificis.count == 0 %>
+                    <p><%= t('.no_projectes') %></p>
+                  <% else %>
+                    <div class="llistat-edificis">
+                      <% @edificis.each do |edifici| %>
+                        <div class="item-llistat-edificis">
+                          <div class="imatge-item-llistat-edificis">
+                            <% if edifici.identificacio.imatge_edifici.attached? %>
+                              <%= image_tag edifici.identificacio.imatge_edifici %>
+                            <% else %>
+                              Aquí imatge edifici
+                            <% end %>
+                          </div>
+                          <div class="text-item-llistat-edificis">
+                            <%= link_to(edifici.nom, edifici_entitats_path(edifici.id), :class => 'link-item-edifici') %>
+                            <br>
+                            <span class="data-llistat-edificis">(<%= edifici.created_at.day.to_s %>-<%= edifici.created_at.month.to_s %>-<%= edifici.created_at.year.to_s %>)</span>
+                            <div class="boto-item-llistat-edificis button-right">
+                              <%= link_to edifici, method: :delete, data: { confirm: t('.eliminar') } do %>
+                                <i class="fa fa-trash" aria-hidden="true"></i>                 
+                              <% end %>
+                            </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Nom</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @edificis.each do |edifici| %>
-      <tr>
-        <td><%= edifici.user_id %></td>
-        <td><%= edifici.nom %></td>
-        <td><%= link_to 'Show', edifici %></td>
-        <td><%= link_to 'Edit', edit_edifici_path(edifici) %></td>
-        <td><%= link_to 'Destroy', edifici, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Edifici', new_edifici_path %>
+                            <div class="boto-item-llistat-edificis button-right">
+                              <%= link_to edit_edifici_path(edifici) do %>
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                              <% end %>
+                            </div>
+                          </div>
+                        </div>
+                      <% end %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

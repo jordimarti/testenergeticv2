@@ -1,5 +1,28 @@
-<h1>New Entitat</h1>
+<div class="light-background-container">
+  
+  <div class="grid-container">
+    <div class="grid-x grid-margin-x">
+      <div class="medium-12 cell">
+        <div class="titol-seccio">
+          <%= t('.titol') %>
+        </div>
+      </div>
+    </div>
+        
+    <div class="grid-x grid-margin-x">
+      <div class="medium-12 cell">
+        <div class="light-container">
+        	<%= render 'form', entitat: @entitat %>
+        </div>
+      </div>
+    </div>
 
-<%= render 'form', entitat: @entitat %>
+    <div class="grid-x grid-margin-x">
+      <div class="medium-12 cell">
+    		<div class="spacer"></div>
+    		<%= link_to t('.tornar'), edifici_entitats_path %>
+    	</div>
+    </div>
+  </div>
 
-<%= link_to 'Back', entitats_path %>
+</div>

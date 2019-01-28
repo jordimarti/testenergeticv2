@@ -1,10 +1,11 @@
 class EntitatsController < ApplicationController
   before_action :set_entitat, only: [:show, :edit, :update, :destroy]
+  before_action :set_edifici
 
-  # GET /entitats
-  # GET /entitats.json
   def index
-    @entitats = Entitat.all
+    @subnavigation = true
+    @submenu_actiu = 'ambits'
+    @entitats = Entitat.where(edifici_id: params[:edifici_id])
   end
 
   # GET /entitats/1
@@ -14,6 +15,8 @@ class EntitatsController < ApplicationController
 
   # GET /entitats/new
   def new
+    @subnavigation = true
+    @submenu_actiu = 'ambits'
     @entitat = Entitat.new
   end
 
@@ -28,7 +31,7 @@ class EntitatsController < ApplicationController
 
     respond_to do |format|
       if @entitat.save
-        format.html { redirect_to @entitat, notice: 'Entitat was successfully created.' }
+        format.html { redirect_to edifici_entitats_path, notice: 'Entitat was successfully created.' }
         format.json { render :show, status: :created, location: @entitat }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class EntitatsController < ApplicationController
   def update
     respond_to do |format|
       if @entitat.update(entitat_params)
-        format.html { redirect_to @entitat, notice: 'Entitat was successfully updated.' }
+        format.html { redirect_to edifici_entitats_path, notice: 'Entitat was successfully updated.' }
         format.json { render :show, status: :ok, location: @entitat }
       else
         format.html { render :edit }
@@ -56,7 +59,7 @@ class EntitatsController < ApplicationController
   def destroy
     @entitat.destroy
     respond_to do |format|
-      format.html { redirect_to entitats_url, notice: 'Entitat was successfully destroyed.' }
+      format.html { redirect_to edifici_entitats_url, notice: 'Entitat was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,6 +68,10 @@ class EntitatsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_entitat
       @entitat = Entitat.find(params[:id])
+    end
+
+    def set_edifici
+      @edifici = Edifici.find(params[:edifici_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
