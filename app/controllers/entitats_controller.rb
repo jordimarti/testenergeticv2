@@ -22,6 +22,8 @@ class EntitatsController < ApplicationController
 
   # GET /entitats/1/edit
   def edit
+    @subnavigation = true
+    @submenu_actiu = 'identificacio'
   end
 
   # POST /entitats
