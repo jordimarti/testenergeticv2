@@ -1,0 +1,2 @@
+class Envolupant < ApplicationRecord
+end

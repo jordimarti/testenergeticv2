@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Murs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Edifici</th>
+      <th>Entitat</th>
+      <th>Ambit</th>
+      <th>Nom</th>
+      <th>Descripcio</th>
+      <th>Superficie</th>
+      <th>Tipus mur</th>
+      <th>Percentatge</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @murs.each do |mur| %>
+      <tr>
+        <td><%= mur.edifici_id %></td>
+        <td><%= mur.entitat_id %></td>
+        <td><%= mur.ambit %></td>
+        <td><%= mur.nom %></td>
+        <td><%= mur.descripcio %></td>
+        <td><%= mur.superficie %></td>
+        <td><%= mur.tipus_mur %></td>
+        <td><%= mur.percentatge %></td>
+        <td><%= link_to 'Show', mur %></td>
+        <td><%= link_to 'Edit', edit_mur_path(mur) %></td>
+        <td><%= link_to 'Destroy', mur, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mur', new_mur_path %>

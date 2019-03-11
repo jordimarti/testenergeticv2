@@ -1,0 +1,32 @@
+<div class="light-background-container">
+  
+  <div class="grid-container">
+    <div class="grid-x grid-margin-x">
+      <div class="medium-12 cell">
+        <div class="titol-seccio">
+          <%= t('.titol') %>
+        </div>
+      </div>
+    </div>
+        
+    <div class="grid-x grid-margin-x">
+      <div class="medium-12 cell">
+        <div class="light-container">
+          <h4 class="titol-seccio"><%= t('.murs') %></h4>
+          <% @murs.each do |mur| %>
+          	<div class="item-aixecament-dades">
+          		<%= link_to mur.nom, edit_mur_path(id: mur.id, edifici_id: @envolupant.edifici_id) %>
+          	</div>
+          <% end %>
+          <div class="afegir-element">
+          	<% if @envolupant.ambit == 'edifici' %>
+        			<%= link_to t('.afegir_element'), murs_nou_path(edifici_id: @envolupant.edifici_id, ambit: 'edifici') %>
+        		<% else %>
+        			<%= link_to t('.afegir_element'), murs_nou_path(edifici_id: @envolupant.edifici_id, entitat_id: @envolupant.entitat_id, ambit: 'entitat') %>
+        		<% end %>
+        	</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

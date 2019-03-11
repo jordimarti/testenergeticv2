@@ -143,3 +143,9 @@ ca:
       habitatge_unifamiliar: "Habitatge unifamiliar"
     update:
       guardat_ok: "Les dades s'han guardat correctament"
+  envolupants:
+    edit:
+      titol: "Envolupant tèrmica"
+  murs:
+    edit:
+      titol: "Envolupant tèrmica: edició de mur"

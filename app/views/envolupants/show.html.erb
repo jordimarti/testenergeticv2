@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Edifici:</strong>
+  <%= @envolupant.edifici_id %>
+</p>
+
+<p>
+  <strong>Entitat:</strong>
+  <%= @envolupant.entitat_id %>
+</p>
+
+<p>
+  <strong>Ambit:</strong>
+  <%= @envolupant.ambit %>
+</p>
+
+<p>
+  <strong>Nom:</strong>
+  <%= @envolupant.nom %>
+</p>
+
+<p>
+  <strong>Descripcio:</strong>
+  <%= @envolupant.descripcio %>
+</p>
+
+<p>
+  <strong>Superficie:</strong>
+  <%= @envolupant.superficie %>
+</p>
+
+<p>
+  <strong>Percentatge:</strong>
+  <%= @envolupant.percentatge %>
+</p>
+
+<%= link_to 'Edit', edit_envolupant_path(@envolupant) %> |
+<%= link_to 'Back', envolupants_path %>

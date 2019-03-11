@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'murs/nou'
+  resources :envolupants
+  resources :component_murs
+  resources :murs
   resources :identificacions
   resources :edificis do
   	resources :entitats

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_14_154326) do
+ActiveRecord::Schema.define(version: 2019_03_04_130851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 2018_10_14_154326) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "component_murs", force: :cascade do |t|
+    t.integer "mur_id"
+    t.string "nom"
+    t.decimal "conductivitat"
+    t.decimal "gruix"
+    t.decimal "resistencia_termica"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "edificis", force: :cascade do |t|
@@ -61,6 +71,18 @@ ActiveRecord::Schema.define(version: 2018_10_14_154326) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "envolupants", force: :cascade do |t|
+    t.integer "edifici_id"
+    t.integer "entitat_id"
+    t.string "ambit"
+    t.string "nom"
+    t.text "descripcio"
+    t.decimal "superficie"
+    t.decimal "percentatge"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "identificacions", force: :cascade do |t|
     t.integer "edifici_id"
     t.string "tipus_via"
@@ -81,6 +103,19 @@ ActiveRecord::Schema.define(version: 2018_10_14_154326) do
     t.string "adreca_propietari"
     t.string "codi_postal_propietari"
     t.string "municipi_propietari"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "murs", force: :cascade do |t|
+    t.integer "edifici_id"
+    t.integer "entitat_id"
+    t.string "ambit"
+    t.string "nom"
+    t.text "descripcio"
+    t.decimal "superficie"
+    t.string "tipus_mur"
+    t.decimal "percentatge"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

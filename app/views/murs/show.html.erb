@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Edifici:</strong>
+  <%= @mur.edifici_id %>
+</p>
+
+<p>
+  <strong>Entitat:</strong>
+  <%= @mur.entitat_id %>
+</p>
+
+<p>
+  <strong>Ambit:</strong>
+  <%= @mur.ambit %>
+</p>
+
+<p>
+  <strong>Nom:</strong>
+  <%= @mur.nom %>
+</p>
+
+<p>
+  <strong>Descripcio:</strong>
+  <%= @mur.descripcio %>
+</p>
+
+<p>
+  <strong>Superficie:</strong>
+  <%= @mur.superficie %>
+</p>
+
+<p>
+  <strong>Tipus mur:</strong>
+  <%= @mur.tipus_mur %>
+</p>
+
+<p>
+  <strong>Percentatge:</strong>
+  <%= @mur.percentatge %>
+</p>
+
+<%= link_to 'Edit', edit_mur_path(@mur) %> |
+<%= link_to 'Back', murs_path %>
