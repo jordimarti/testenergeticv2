@@ -69,6 +69,12 @@ ca:
         puntuacio_terra: "Puntuació del terra"
         descripcio_finestres: "Descripció de les finestres"
         puntuacio_finestres: "Puntuació de les finestres"
+      mur:
+        nom: "Nom"
+        descripcio: "Descripció"
+        superficie: "Superfície"
+        percentatge: "Percentatge"
+        tipus_mur: "Número de fulles"
       proposta:
         nom: "Nom"
         descripcio: "Descripció"
@@ -89,7 +95,7 @@ ca:
       projectes: "Projectes"
     subnavigation:
       identificacio: "Identificació"
-      envolupant: "Envolupant"
+      aixecament: "Aixecament de dades"
       instalacions: "Instal·lacions"
       consums: "Consums"
       propostes: "Propostes de millora"
@@ -114,6 +120,13 @@ ca:
       edifici_actualitzat: "Les dades s'han actualitzat correctament"
     delete:
       edifici_eliminat: "El projecte s'ha eliminat correctament"
+    aixecament:
+      titol: "Aixecament de dades"
+      envolupant: "Envolupant tèrmica"
+      iluminacio: "Il·luminació"
+      acs_clima: "ACS i climatització"
+      factures: "Factures"
+      altres: "Altres"
   entitats:
     index:
       titol: "Selecció d'àmbit"
@@ -149,3 +162,11 @@ ca:
   murs:
     edit:
       titol: "Envolupant tèrmica: edició de mur"
+    form:
+      composicio: "Composició"
+      una_fulla: "Una fulla"
+      dues_fulles: "Dues fulles"
+      coeficient_transmissio_termica: "Coeficient de transmissió tèrmica"
+      valor_segons_cte: "Valor segons del CTE"
+      nou_component: "Afegir component"
+      guardar: "Guardar"

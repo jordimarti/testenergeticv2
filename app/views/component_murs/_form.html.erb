@@ -1,10 +1,10 @@
 
-<%= simple_form_for(@component_mur) do |f| %>
+<%= simple_form_for(@component_mur, remote: true) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :mur_id %>
+    <%= f.input :mur_id, as: :hidden, input_html: { value: params[:mur_id] } %>
     <%= f.input :nom %>
     <%= f.input :conductivitat %>
     <%= f.input :gruix %>

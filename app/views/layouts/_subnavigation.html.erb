@@ -2,13 +2,16 @@
 	<div class="sub-top-bar">
 		<div class="header-submenu">
 	  	<ul class="header-submenu-list">
-	      <li class="header-submenu-item header-nom-edifici"><%= link_to @edifici.nom, edifici_entitats_path(edifici_id: params[:edifici_id]) %></li>
+	      <li class="header-submenu-item header-nom-edifici"><%= link_to @edifici.nom, edifici_entitats_path(edifici_id: @edifici.id) %></li>
 	  		<% if @submenu_actiu == 'ambits' %>
 	  			
 	  		<% else %>
 		  		<li class="header-submenu-item <% if @submenu_actiu == 'identificacio' %>
 		            header-submenu-actiu
 		            <% end %>"><%= link_to(t('.identificacio'), edit_identificacio_path(@edifici.identificacio.id), :class => 'header-submenu-link') %></li>
+		      <li class="header-submenu-item <% if @submenu_actiu == 'aixecament' %>
+		            header-submenu-actiu
+		            <% end %>"><%= link_to(t('.aixecament'), aixecament_path(@edifici.id), :class => 'header-submenu-link') %></li>
 		      
 		    <% end %>
 	  	</ul>

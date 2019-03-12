@@ -1,4 +1,13 @@
 
+<div class="reveal" id="modal-component" data-reveal>
+  <h3 id="modalTitle"><%= t('.component') %></h3>
+  <div id="formulari-component" class="formulari-component">
+  </div>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
 <%= simple_form_for(@mur) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -7,14 +16,55 @@
     <%= f.input :edifici_id, :as => :hidden, :input_html => { :value => params[:edifici_id] } %>
     <%= f.input :entitat_id, :as => :hidden, :input_html => { :value => params[:entitat_id] } %>
     <%= f.input :ambit, :as => :hidden, :input_html => { :value => params[:ambit] } %>
-    <%= f.input :nom %>
-    <%= f.input :descripcio %>
-    <%= f.input :superficie %>
-    <%= f.input :tipus_mur %>
-    <%= f.input :percentatge %>
+    <div class="grid-x grid-margin-x">
+      <div class="medium-4 cell">
+        <%= f.input :nom %>
+      </div>
+      <div class="medium-8 cell">
+        <%= f.input :descripcio %>
+      </div>
+    </div>
+    <div class="grid-x grid-margin-x">
+      <div class="medium-4 cell">
+        
+      </div>
+      <div class="medium-8 cell">
+        <div class="grid-x grid-margin-x">
+          <div class="medium-6 cell">
+            <%= f.input :superficie %>
+          </div>
+          <div class="medium-6 cell">
+            <%= f.input :percentatge %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-x grid-margin-x">
+      <div class="medium-4 cell">
+        <div id="resultats-transmitancies">
+          <%= render  :partial => 'calcul_transmitancia' %>
+        </div>
+      </div>
+      <div class="medium-8 cell">
+        <hr/>
+        <h4><%= t('.composicio') %></h4>
+        <%= f.input :tipus_mur, collection: [[t('.una_fulla'), 'una_fulla'], [t('.dues_fulles'), 'dues_fulles']] %>
+        <div id="elements-mur">
+          Elements d'exterior a interior: <br/>
+
+          <div id="components">
+            <%= render  :partial => '/component_murs/llistat_components' %>
+          </div>
+
+          <%= link_to (new_component_mur_path(mur_id: @mur.id, id: @mur.id)), remote: true do %>
+            <span class="suma">+</span> <%= t('.nou_component') %>
+          <% end %>
+        </div>
+      </div>
+    </div>  
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, t('.guardar'), :class => 'button' %>
   </div>
 <% end %>

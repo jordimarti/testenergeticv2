@@ -1,5 +1,5 @@
 class EdificisController < ApplicationController
-  before_action :set_edifici, only: [:show, :edit, :update, :destroy, :ambits]
+  before_action :set_edifici, only: [:show, :edit, :update, :destroy, :ambits, :aixecament]
   before_action :authenticate_user!
 
   # GET /edificis
@@ -68,11 +68,20 @@ class EdificisController < ApplicationController
     @identificacio = Identificacio.new
     @identificacio.edifici_id = edifici_id
     @identificacio.save
+    #Envolupant
+    @envolupant = Envolupant.new
+    @envolupant.edifici_id = edifici_id
+    @envolupant.save
   end
 
   def ambits
     @subnavigation = true
     @submenu_actiu = 'ambits'
+  end
+
+  def aixecament
+    @subnavigation = true
+    @submenu_actiu = 'aixecament'
   end
 
   private

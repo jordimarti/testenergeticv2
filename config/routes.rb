@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   devise_for :users
   get 'edifici/:id/ambits', to: 'edificis#ambits', as: 'ambits'
+  get 'edifici/:id/aixecament', to: 'edificis#aixecament', as: 'aixecament'
   get 'home/contacta'
   root to: "home#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

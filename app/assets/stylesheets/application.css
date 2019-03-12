@@ -324,3 +324,17 @@ div.radio {
 	float: left;
 	margin-right: 40px;
 }
+
+
+/******* MISC ********/
+.item-aixecament {
+  height: 200px;
+  background-color: #eaeaea;
+  border: 1px solid #cccccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.elimina-right {
+  float: right;
+}

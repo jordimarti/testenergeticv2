@@ -3,7 +3,7 @@ class IdentificacionsController < ApplicationController
   before_action :set_edifici
 
   def edit
-    #@subnavigation = true
+    @subnavigation = true
     @submenu_actiu = 'identificacio'
     #check_user_edifici(@edifici.id)
   end
@@ -29,7 +29,7 @@ class IdentificacionsController < ApplicationController
   def update
     respond_to do |format|
       if @identificacio.update(identificacio_params)
-        format.html { redirect_to @identificacio, notice: 'Identificacio was successfully updated.' }
+        format.html { redirect_to edit_identificacio_path(@identificacio.edifici_id), notice: 'Identificacio was successfully updated.' }
         format.json { render :show, status: :ok, location: @identificacio }
       else
         format.html { render :edit }

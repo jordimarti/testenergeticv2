@@ -1,64 +1,41 @@
 class ComponentMursController < ApplicationController
   before_action :set_component_mur, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :js
 
-  # GET /component_murs
-  # GET /component_murs.json
-  def index
-    @component_murs = ComponentMur.all
-  end
-
-  # GET /component_murs/1
-  # GET /component_murs/1.json
-  def show
-  end
-
-  # GET /component_murs/new
   def new
     @component_mur = ComponentMur.new
   end
 
-  # GET /component_murs/1/edit
   def edit
   end
 
-  # POST /component_murs
-  # POST /component_murs.json
   def create
-    @component_mur = ComponentMur.new(component_mur_params)
-
-    respond_to do |format|
-      if @component_mur.save
-        format.html { redirect_to @component_mur, notice: 'Component mur was successfully created.' }
-        format.json { render :show, status: :created, location: @component_mur }
-      else
-        format.html { render :new }
-        format.json { render json: @component_mur.errors, status: :unprocessable_entity }
-      end
-    end
+    @component_mur = ComponentMur.create(component_mur_params)
+    @mur = Mur.find(@component_mur.mur_id)
+    @component_murs = ComponentMur.where(mur_id: @mur.id)
   end
 
-  # PATCH/PUT /component_murs/1
-  # PATCH/PUT /component_murs/1.json
   def update
-    respond_to do |format|
-      if @component_mur.update(component_mur_params)
-        format.html { redirect_to @component_mur, notice: 'Component mur was successfully updated.' }
-        format.json { render :show, status: :ok, location: @component_mur }
+    @component_mur.update(component_mur_params)
+    @mur = Mur.find(@component_mur.mur_id)
+    @component_murs = ComponentMur.where(mur_id: @mur.id)
+
+    resistencia_total = 0.0
+    @component_murs.each do |component|
+      if component.gruix != nil && component.conductivitat != nil
+        resistencia_parcial = component.gruix/component.conductivitat
       else
-        format.html { render :edit }
-        format.json { render json: @component_mur.errors, status: :unprocessable_entity }
+        resistencia_parcial = 100
       end
+      resistencia_total += resistencia_parcial
     end
+    @transmitancia = 0.04 + resistencia_total + 0.13
   end
 
-  # DELETE /component_murs/1
-  # DELETE /component_murs/1.json
   def destroy
+    @mur = Mur.find(params[:mur_id])
+    @component_murs = ComponentMur.where(mur_id: @mur.id)
     @component_mur.destroy
-    respond_to do |format|
-      format.html { redirect_to component_murs_url, notice: 'Component mur was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private

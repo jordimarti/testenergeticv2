@@ -1,0 +1,40 @@
+<div class="light-background-container">
+  
+  <div class="grid-container">
+    <div class="grid-x grid-margin-x">
+      <div class="medium-12 cell">
+        <div class="titol-seccio">
+          <%= t('.titol') %>
+        </div>
+      </div>
+    </div>
+        
+    <div class="grid-x grid-margin-x">
+      <div class="medium-12 cell">
+        <div class="light-container">
+          <div class="grid-x grid-margin-x">
+            <div class="medium-4 cell item-aixecament">
+              <%= link_to edit_envolupant_path(edifici_id: @edifici.id) do %>
+                <p><%= t('.envolupant') %></p>
+              <% end %>
+            </div>
+            <div class="medium-4 cell item-aixecament">
+              <p><%= t('.iluminacio') %></p>
+            </div>
+            <div class="medium-4 cell item-aixecament">
+              <p><%= t('.acs_clima') %></p>
+            </div>
+          </div>
+          <div class="grid-x grid-margin-x">
+            <div class="medium-4 cell item-aixecament">
+              <p><%= t('.factures') %></p>
+            </div>
+            <div class="medium-4 cell item-aixecament">
+              <p><%= t('.altres') %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+
+  
+    <%= image_tag('exemple_mur.png', :alt => t('.exemple_mur'), :class => 'exemple-mur') %>
+    
+    <div id="resultat-cas" class="resultat-calcul-transmitancia">
+      <span class="titol-valor-ressaltat"><%= t('.coeficient_transmissio_termica') %>:</span><br/>
+      <span class="valor-ressaltat"><%= '%.2f' % @transmitancia %></span> W/m<sup>2</sup>K
+    </div>
+    <div id="resultat-cte" class="resultat-calcul-transmitancia">
+      <span class="titol-valor-ressaltat"><%= t('.valor_segons_cte') %>:</span><br/>
+      <span class="valor-ressaltat">0,75</span> W/m<sup>2</sup>K
+    </div>    
+  
