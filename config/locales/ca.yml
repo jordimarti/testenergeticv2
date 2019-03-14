@@ -76,6 +76,12 @@ ca:
         superficie: "Superfície"
         percentatge: "Percentatge"
         tipus_mur: "Número de fulles"
+      component_mur:
+        nom: "Nom"
+        conductivitat: "Conductivitat"
+        gruix: "Gruix"
+        resistencia_termica: "Resistència tèrmica"
+        color: "Color (per representació gràfica)"
       proposta:
         nom: "Nom"
         descripcio: "Descripció"
@@ -178,3 +184,5 @@ ca:
   component_murs:
     llistat_components:
       eliminar: "Segur que vols eliminar?"
+    form:
+      guardar: "Guardar"
