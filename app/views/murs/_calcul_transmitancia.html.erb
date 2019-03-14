@@ -1,13 +1,30 @@
 
-  
-    <%= image_tag('exemple_mur.png', :alt => t('.exemple_mur'), :class => 'exemple-mur') %>
+    <div class="container-text-dibuix-mur">
+      <div class="text-esquerra-mur"><%= t('.exterior') %></div>
+      <div class="text-dreta-mur"><%= t('.interior') %></div>
+    </div>
+    <div class="container-dibuix-mur">
+      <div class="representacio-grafica-mur">
+        <% @components_grafics.each do |component| %>
+          <div class="component-grafic-mur" style="background-color:<%= component.color %>;width:<%= component.gruix * 400 %>px;"></div>
+        <% end %>
+      </div>
+    </div>
     
     <div id="resultat-cas" class="resultat-calcul-transmitancia">
       <span class="titol-valor-ressaltat"><%= t('.coeficient_transmissio_termica') %>:</span><br/>
-      <span class="valor-ressaltat"><%= '%.2f' % @transmitancia %></span> W/m<sup>2</sup>K
+      <% if @transmitancia != nil %>
+        <span class="valor-ressaltat"><%= '%.2f' % @transmitancia %></span> W/m<sup>2</sup>K
+      <% else %>
+        Error de càlcul
+      <% end %>
     </div>
     <div id="resultat-cte" class="resultat-calcul-transmitancia">
       <span class="titol-valor-ressaltat"><%= t('.valor_segons_cte') %>:</span><br/>
-      <span class="valor-ressaltat">0,75</span> W/m<sup>2</sup>K
+      <span class="subtitol-valor-ressaltat">( <%= t('.zona_climatica') %>: <%= @zona.capitalize %> )</span><br/>
+      <span class="valor-ressaltat"><%= @valor_limit %></span> W/m<sup>2</sup>K
+      <% if @supera_transmitancia_limit == true %>
+        <%= image_tag('alerta.png', :alt => t('.alerta_supera_limit'), :class => 'icona-alerta') %>
+      <% end %>
     </div>    
   

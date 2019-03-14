@@ -1,15 +1,26 @@
+<% if @falten_dades.present? %>
+	<% if @falten_dades[:resultat] == true %>
+		<div class="alerta-error-calcul"><%= @falten_dades[:nom] %> no està ben definit!</div>
+	<% end %>
+<% end %>
 
 <% @component_murs.each do |component| %>
 	<div class="components-item">
 		<%= link_to component_mur_path(component, mur_id: @mur.id), remote: true, method: :delete,  data: { confirm: t('.eliminar') } do %>
-		  <div class="components-eliminar elimina-right">
+		  <div class="components-eliminar components-right">
 		  	<i class="fa fa-trash" aria-hidden="true"></i>
 		  </div>
 		<% end %>
+		<%= link_to component_murs_canviar_posicio_path(component_id: component.id), remote: true do %>
+		  <div class="components-pujar components-right">
+		  	<i class="fa fa-arrow-up" aria-hidden="true"></i> 
+		  </div>
+		<% end %>
 		<%= link_to edit_component_mur_path(component.id, mur_id: @mur.id, edifici_id: params[:edifici_id]), remote: true do %>
-	    <div class="components-editar">
+	    
 	    	<%= component.nom %>
-	    </div>
+	    
 	  <% end %>
+	  <span class="info-subtil">( <%= '%.2f' % component.resistencia_termica %> m<sup>2</sup>K/W )</span>
 	</div>
 <% end %>

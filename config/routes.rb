@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'murs/nou'
   resources :envolupants
+  get 'component_murs/canviar_posicio'
   resources :component_murs
   resources :murs
   resources :identificacions
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   	resources :entitats
   end
   devise_for :users
+
   get 'edifici/:id/ambits', to: 'edificis#ambits', as: 'ambits'
   get 'edifici/:id/aixecament', to: 'edificis#aixecament', as: 'aixecament'
   get 'home/contacta'

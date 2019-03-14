@@ -45,6 +45,7 @@ ca:
         periode_construccio: "Període de construcció"
         any_construccio: "Any de construcció"
         superficie_util: "Superfície útil"
+        altitud_municipi: "Altitud població"
         tipus_projecte: "Tipus de projecte"
         nom_propietari: "Nom"
         cognoms_propietari: "Cognoms"
@@ -166,7 +167,14 @@ ca:
       composicio: "Composició"
       una_fulla: "Una fulla"
       dues_fulles: "Dues fulles"
-      coeficient_transmissio_termica: "Coeficient de transmissió tèrmica"
-      valor_segons_cte: "Valor segons del CTE"
       nou_component: "Afegir component"
       guardar: "Guardar"
+      component: "Component"
+      alerta-supera-limit: "Alerta! El mur supera el valor límit del CTE"
+    calcul_transmitancia:
+      coeficient_transmissio_termica: "Coeficient de transmissió tèrmica"
+      valor_segons_cte: "Valor segons el CTE"
+      zona_climatica: "Zona climàtica"
+  component_murs:
+    llistat_components:
+      eliminar: "Segur que vols eliminar?"

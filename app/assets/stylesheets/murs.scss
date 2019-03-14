@@ -11,6 +11,11 @@
 	
 }
 
+.subtitol-valor-ressaltat {
+	color: #666;
+	font-size: 0.9em;
+}
+
 .valor-ressaltat {
 	font-weight: bold;
 	font-size: 1.2em;
@@ -18,4 +23,46 @@
 
 .resultat-calcul-transmitancia {
 	margin: 20px 0px;
+}
+
+.component-grafic-mur {
+	height: 150px;
+	border-right: 1px solid #999;
+	float: left;
+}
+
+.container-dibuix-mur {
+	text-align: center;
+	padding-left: 30%;
+}
+
+.representacio-grafica-mur {
+	clear: both;
+	border-left: 1px solid #999;
+	padding: 0 auto;
+	height: 150px;
+	width: 200px;
+}
+
+.container-text-dibuix-mur {
+	margin-top: 20px;
+	clear: both;
+	padding: 20px;
+}
+
+.text-esquerra-mur {
+	float: left;
+	font-size: 0.9em;
+	color: #666;
+}
+
+.text-dreta-mur {
+	float: right;
+	font-size: 0.9em;
+	color: #666;
+}
+
+.icona-alerta {
+	max-width: 30px;
+	margin-top: -5px;
 }

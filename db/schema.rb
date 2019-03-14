@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_04_130851) do
+ActiveRecord::Schema.define(version: 2019_03_14_065333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2019_03_04_130851) do
     t.decimal "resistencia_termica"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "posicio"
+    t.string "color"
   end
 
   create_table "edificis", force: :cascade do |t|
@@ -105,6 +107,7 @@ ActiveRecord::Schema.define(version: 2019_03_04_130851) do
     t.string "municipi_propietari"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "altitud_municipi"
   end
 
   create_table "murs", force: :cascade do |t|

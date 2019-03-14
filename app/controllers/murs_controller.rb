@@ -1,4 +1,5 @@
 class MursController < ApplicationController
+  include ComponentMursHelper
   before_action :set_mur, only: [:show, :edit, :update, :destroy]
   before_action :set_edifici
   respond_to :html, :js
@@ -33,21 +34,16 @@ class MursController < ApplicationController
   def edit
     @subnavigation = true
     @submenu_actiu = 'aixecament'
-    @component_murs = ComponentMur.where(mur_id: @mur.id)
-    resistencia_total = 0.0
-    @component_murs.each do |component|
-      puts "Dades ----------"
-      puts component.nom
-      puts "Gruix: " + component.gruix.to_s
-      puts "Conductivitat: " + component.conductivitat.to_s
-      if component.gruix != nil && component.conductivitat != nil
-        resistencia_parcial = component.gruix/component.conductivitat
-      else
-        resistencia_parcial = 100
-      end
-      resistencia_total += resistencia_parcial
+    @component_murs = ComponentMur.where(mur_id: @mur.id).order(posicio: :asc)
+    @transmitancia = transmitancia_total(@mur.id, false)
+    @zona = zona_climatica_cte(@mur.edifici_id)
+    @valor_limit = transmitancia_limit_murs_cte(@zona)
+    if @transmitancia > @valor_limit
+      @supera_transmitancia_limit = true
+    else
+      @supera_transmitancia_limit = false
     end
-    @transmitancia = 0.04 + resistencia_total + 0.13
+    dibuixa_mur(@mur.id)
   end
 
   # POST /murs

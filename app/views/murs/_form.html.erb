@@ -56,7 +56,7 @@
             <%= render  :partial => '/component_murs/llistat_components' %>
           </div>
 
-          <%= link_to (new_component_mur_path(mur_id: @mur.id, id: @mur.id)), remote: true do %>
+          <%= link_to (new_component_mur_path(mur_id: @mur.id, id: @mur.id, edifici_id: @mur.edifici_id)), remote: true do %>
             <span class="suma">+</span> <%= t('.nou_component') %>
           <% end %>
         </div>

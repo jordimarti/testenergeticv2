@@ -335,6 +335,19 @@ div.radio {
   margin-bottom: 20px;
 }
 
-.elimina-right {
+.components-right {
   float: right;
+  margin-left: 10px;
+}
+
+.alerta-error-calcul {
+  border: 1px solid #DE3030;
+  background-color: #F8E4E4;
+  padding: 10px;
+  margin: 20px 0px;
+}
+
+.info-subtil {
+  font-size: 0.8em;
+  color: #666;
 }
